@@ -6,24 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Rake::Task["db:reset"].invoke
+Rake::Task["db:reset"].invoke
 
 10.times do |index|
-
-  # User.create(
-  #   username: Faker::Name.unique.name,
-  #   email: Faker::Internet.email,
-  #   balance: rand(1000)
-  # )
 
   Meal.create(
     name: Faker::Food.dish,
     description: Faker::Food.ingredient
   )
-  # Purchase.create(
-  #   user_id: rand(1..10),
-  #   product_id: rand(1...10)
-  # )
+
 end
 
 5.times do |index|
