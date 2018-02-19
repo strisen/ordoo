@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Rake::Task["db:reset"].invoke
+# Rake::Task["db:reset"].invoke
 
 10.times do |index|
 
@@ -28,7 +28,7 @@ end
 
 5.times do |index|
   @currentOrder = DeliveryOrder.create(
-    order_id: "G" + rand(0..9999).to_s,
+    order_id: "GO" + rand(0..999).to_s,
     serving_datetime: rand(1.month).seconds.from_now
   )
 
@@ -41,12 +41,3 @@ end
     )
   end
 end
-
-# rand(1..5).times do |index|
-#   OrderItem.create(
-#     delivery_order: DeliveryOrder.all.sample,
-#     meal: Meal.all.sample,
-#     quantity: rand(1..100),
-#     unit_price: rand(100..5000)
-#   )
-# end
