@@ -12,7 +12,7 @@ class DeliveryOrder < ApplicationRecord
     json = {
       :order_id => self.order_id,
       :delivery_date => self.serving_datetime.to_date,
-      :delivery_time => self.serving_datetime.strftime('%H:%M%p') + "-" + (self.serving_datetime + 30*60).strftime('%H:%M%p'),
+      :delivery_time => "#{self.serving_datetime.strftime('%I:%M%p')} - #{(self.serving_datetime + 30*60).strftime('%I:%M%p')}",
       :order_items => @orderItems
     }
   end

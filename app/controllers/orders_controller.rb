@@ -1,12 +1,17 @@
 class OrdersController < ApplicationController
+
   def index
-    @orderList = DeliveryOrder.all.as_json
-    render json: @orderList.as_json(:except => [:order_items])
+    @orders = DeliveryOrder.all.as_json
+    @orderList = {
+      orders: @orders.as_json(:except => [:order_items])
+    }
+    render json: @orderList
   end
 
   def show
-    @currentOrder = DeliveryOrder.find(params[:id]).as_json
+    @currentOrder = {
+      order: DeliveryOrder.find_by(order_id: params[:id].upcase).as_json
+    }
     render json: @currentOrder
   end
-
 end
